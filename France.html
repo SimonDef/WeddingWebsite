@@ -10,6 +10,18 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="stylesheet" href="assets/css/main.css" />
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script>
+		$(document).ready(function(){
+			$("#rsvpradio").on("change", function() {
+				if ($("#NRSVP").is(":checked")){
+					$("#brunchradio").hide();
+				} else {
+					$("#brunchradio").show();
+				}
+			});
+		});
+		</script>
 	</head>
 	<body class="subpage">
 
@@ -25,8 +37,8 @@
 			<nav id="menu">
 				<ul class="links">
 					<li><a href="index.html">Home</a></li>
-					<li><a href="HK.html">Hong Kong</a></li>
 					<li><a href="France.html">France</a></li>
+					<li><a href="HK.html">Hong Kong</a></li>
 					<li><a href="index.html#footer">Contact</a></li>
 				</ul>
 			</nav>
@@ -49,8 +61,12 @@
 							<p>Saturday 28 July 2018</p>
 
 							<p>at <strong>Chateau de Saint Senoch</strong><br>
-							37 600 Varennes, France</p>
-							<p>Starting from 3 P.M.</p>
+							37 600 Varennes, France<br>
+							Starting from 3 P.M.</p>
+							
+							<p>Sunday 29 July 2018</p>
+							<p>Brunch in the chateau's park<br>
+							Starting from 12 P.M.</p>
 							
 							<p>	<a href="#footer"
 							class="button alt"> R.S.V.P. </a> Before June 30th</p>
@@ -138,7 +154,8 @@
 									Bell tents for 2<br>
 									Cottage for 8<br>
 									Camping pitches<br>
-									<br>						
+									<br>
+									La Touche, 37240 Ligueil, France<br>
 									8 min drive to the wedding place</p>
 								</div>
 								<div class="4u 12u$(medium)">
@@ -150,6 +167,7 @@
 									<br>
 									<br>
 									<br>
+									33 Rue des Lezards, 37600 Loches, France
 									10 min drive to the wedding place</p>
 								</div>
 								<div class="4u$ 12u$(medium)">
@@ -172,48 +190,61 @@
 			<footer id="footer">
 				<div class="inner">
 					<h2>RSVP</h2>
-						<div class="row uniform">
-							<form id="gform" action="https://script.google.com/macros/s/AKfycbz5XabEEtVM8oXK1qE7JY0YAmtfb9feUUtrUaoGul88ao78Kv8/exec" method="post">
+					<div>
+						<p>Please RSVP for every person joining or indicate the number of people</p>
+						<form id="gform" action="https://script.google.com/macros/s/AKfycbz5XabEEtVM8oXK1qE7JY0YAmtfb9feUUtrUaoGul88ao78Kv8/exec" method="post">							<!-- Break -->
+							<div class="field half first">
+								<label for="name">Name</label>
+								<input name="name" id="name" type="text" placeholder="Name">
+							</div>
+							<div class="field half">
+								<label for="email">Email</label>
+								<input name="email" id="email" type="email" placeholder="Email">
+							</div>
+							<!-- Radio buttons -->
+							<div>
+								<div id="rsvpradio">
+									<div class="field half first">
+										<input type="radio" id="RSVP" name="rsvp" value="Yes" checked>
+										<label for="RSVP">I will be attending</label>
+									</div>
+									<div class="field half">
+										<input type="radio" id="NRSVP" name="rsvp" value="No">
+										<label for="NRSVP">I'm sorry I can't make it </label>
+									</div>
+								</div>
 								<!-- Break -->
-								<div class="field half first">
-									<label for="name">Name</label>
-									<input name="name" id="name" type="text" placeholder="Name">
+								<div id="brunchradio">
+									<div class="field half first">
+										<input type="radio" id="BRUNCH" name="brunch" value="Yes" checked>
+										<label for="BRUNCH">I will join you for brunch too</label>
+									</div>								
+									<div class="field half">
+										<input type="radio" id="NBRUNCH" name="brunch" value="No">
+										<label for="NBRUNCH">I will not join you for brunch</label>
+									</div>
 								</div>
-								<div class="field half">
-									<label for="email">Email</label>
-									<input name="email" id="email" type="email" placeholder="Email">
-								</div>
-								<!-- Break -->
-								<div class="field half first">
-									<input type="radio" id="RSVP" name="rsvp" value="Yes" checked>
-									<label for="RSVP">I will be attending</label>
-								</div>
-								<div class="field half">
-									<input type="radio" id="NRSVP" name="rsvp" value="No" >
-									<label for="NRSVP">I'm sorry I can't make it </label>
-								</div>
-								<!-- Break -->
-								<div class="field">
-									<label for="object">Object<label>
-									<textarea name="object" id="object" rows ="1" placeholder="RSVP FR">RSVP FR</textarea>
-								<div>
-								<div class="field">
-									<label for="message">Message</label>
-									<textarea name="message" id="message" rows="6" placeholder="Message"></textarea>
-								</div>
-								<ul class="actions">
-									<li><input value="Send Message" class="button alt" type="submit"></li>
-								</ul>
-							</form>
-						</div>
-		
+							</div>
+							<!-- Break -->
+							<div class="field">
+								<label for="object">Object</label>
+								<textarea name="object" id="object" rows ="1" placeholder="RSVP FR">RSVP FR</textarea>
+							</div>
+							<div class="field">
+								<label for="message">Message</label>
+								<textarea name="message" id="message" rows="6" placeholder="Message"></textarea>
+							</div>
+							<ul class="actions">
+								<li><input value="Send Message" class="button alt" type="submit"></li>
+							</ul></form>
+					</div>
+					
 					<!-- Thankyou Message People See when they submit the form: -->
- 					 <div class="copyright" style="display:none;" id="thankyou_message">
- 					 <h3>Thanks for rsvp <br>
- 					 We will get back to you soon!</h3>
- 					 </div>
-				
-				
+ 					<div class="copyright" style="display:none;" id="thankyou_message">
+ 					 	<h3>Thanks for rsvp <br>
+ 					 	We will get back to you soon!</h3>
+ 					</div>
+					
 					<ul class="icons">
 						<li><a href="https://www.facebook.com/simon.defrenet" class="icon round fa-facebook"><span class="label">Facebook</span></a></li>
 						<li><a href="#" class="icon round fa-instagram"><span class="label">Instagram</span></a></li>
@@ -228,6 +259,7 @@
 			</footer>
 
 		<!-- Scripts -->
+
 			<script src="assets/js/jquery.min.js"></script>
 			<script src="assets/js/jquery.scrolly.min.js"></script>
 			<script src="assets/js/jquery.scrollex.min.js"></script>
